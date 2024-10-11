@@ -35,7 +35,7 @@ create table empleado(
     apeMat VARCHAR(20) null,
     tel int null,
     correo VARCHAR(30) null UNIQUE,
-    Foreign Key (fabrica) REFERENCES fabrica(num)
+    Foreign Key (fabrica) REFERENCES fabrica(num),
     Foreign Key (puesto) REFERENCES puesto(codigo)
 ) 
 
@@ -49,7 +49,7 @@ create table orden(
     montoPago FLOAT not null,
     fecha date not null,
     totalDescuento float not null,
-    Foreign Key (empleado) REFERENCES empleado(num)
+    Foreign Key (empleado) REFERENCES empleado(num),
     Foreign Key (estado) REFERENCES estado(codigo)
 )
 
@@ -58,7 +58,7 @@ create table recibo(
     total float not null,
     fecha date not null,
     estadoReporte VARCHAR(20) not null,
-    Foreign Key (reporte) REFERENCES reporte(num)
+    Foreign Key (reporte) REFERENCES reporte(num),
     Foreign Key (orden) REFERENCES orden(num)
 )
 
@@ -68,7 +68,7 @@ create table reporte(
     fechaInicio  date not null,
     fechaFinal date not null,
     Periodo date not null,
-    fechaElabo
+    fechaElabo date not null
 )
 
 create table estado(
